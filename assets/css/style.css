@@ -1,0 +1,113 @@
+article, aside, figure, footer, header, hgroup,
+menu, nav, section { display: block; }
+
+p {
+    margin: 0 0 1em;
+}
+
+.timeline-element {
+    margin-bottom: 20px;
+}
+
+.timeline-element-left {
+    float: left;
+    margin-right: 33px;
+    overflow: hidden;
+    width: 50px;
+    height: 80px;
+    font-size: 20px;
+    text-shadow: 1px 1px #cacaca;
+}
+
+.timeline-element-body {
+    overflow: hidden;
+}
+
+.timeline-element .text {
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.timeline-element .text p:last-child {
+    margin: 0;
+}
+
+/* Decoration */
+
+.timeline,
+.timeline-element {
+    position: relative;
+}
+
+.timeline:before,
+.timeline-element:before,
+.timeline-element .text:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 65px;
+}
+
+.timeline:before {
+    width: 3px;
+    top: -20px;
+    bottom: -20px;
+    background: rgba(0,0,0,0.1);
+}
+
+.timeline-element:before {
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
+    border-radius: 100px;
+    margin: 15px 0 0 -6px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.1);
+    background: #ccc;
+}
+
+.timeline-element.Start:hover:before {
+    background: #a1887f;
+}
+.timeline-element.Work:hover:before {
+    background: #90a4ae;
+}
+.timeline-element.Other:hover:before {
+    background: #ffab91;
+}
+
+.timeline-element .text:before {
+    top: 18px;
+    left: 78px;
+    width: 9px;
+    height: 9px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: #e5e5e5;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+#intro {
+    max-width: 800px;
+    margin: auto;
+}
+#intro .card-content {
+    height: 300px;
+    background-image: url('/assets/img/intro.jpg');
+    background-position: 50%;
+}
+#intro p {
+    color: #ffffff;
+    position: absolute;
+    bottom: 12px;
+}
+
+.project-title a {
+    color: #fff;
+    text-decoration: underline;
+}
