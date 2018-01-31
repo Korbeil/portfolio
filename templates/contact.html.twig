@@ -3,5 +3,45 @@
 {% block contact_active %}active{% endblock %}
 
 {% block content %}
-    Contact
+
+    <h3 class="blue-grey-text text-lighten-2">Contact</h3>
+
+    <div class="row blue-grey-text text-lighten-2">
+        <form class="col s12" method="post" action="{{ path('contact_send') }}">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="firstName" name="firstName" type="text" class="validate" required>
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="lastName" name="lastName" type="text" class="validate" required>
+                    <label for="lastName">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" name="email" type="email" class="validate" required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="message" name="message" class="materialize-textarea" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="waves-effect waves-yellow btn blue-grey lighten-2" type="submit">
+                        Send
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 {% endblock %}
