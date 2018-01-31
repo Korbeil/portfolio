@@ -19,7 +19,8 @@
     <div class="nav-wrapper blue-grey lighten-2">
         <a href="/" class="brand-logo center">Baptiste LEDUC</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li class="{% block blog_active %}{% endblock %}"><a href="/">Blog</a></li>
+            <li class="{% block blog_active %}{% endblock %}"><a href="{{ url('blog_index') }}">Blog</a></li>
+            <li class="{% block presentation_active %}{% endblock %}"><a href="{{ url('presentation') }}">Presentation</a></li>
             <li class="{% block project_active %}{% endblock %}"><a href="{{ url('projects') }}">Projects</a></li>
             <li class="{% block contact_active %}{% endblock %}"><a href="{{ url('contact') }}">Contact</a></li>
         </ul>
