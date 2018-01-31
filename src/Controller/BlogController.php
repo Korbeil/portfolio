@@ -11,14 +11,14 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class HomeController extends Controller
+class BlogController extends Controller
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="blog_index")
      */
     public function index()
     {
-        return $this->render('home.html.twig');
+        return $this->render('blog.html.twig');
     }
 
 }
