@@ -13,8 +13,10 @@ Encore
     // uncomment to define the assets of the project
     .addEntry('js/jquery', './assets/js/jquery.js')
     .addEntry('js/materialize', './assets/js/materialize.js')
+
     .addStyleEntry('css/materialize', './assets/css/materialize.css')
     .addStyleEntry('css/font-awesome', './assets/css/font-awesome.css')
+    .addStyleEntry('css/style', './assets/css/style.css')
 
     // uncomment if you use Sass/SCSS files
     // .enableSassLoader()
