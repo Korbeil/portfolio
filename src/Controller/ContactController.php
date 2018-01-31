@@ -8,6 +8,7 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -15,6 +16,7 @@ class ContactController extends Controller
 {
     /**
      * @Route("/contact", name="contact", methods={"GET"})
+     * @return Response
      */
     public function index()
     {
@@ -24,6 +26,7 @@ class ContactController extends Controller
     /**
      * @Route("/contact", name="contact_send", methods={"POST"})
      * @param Request $request
+     * @return Response
      */
     public function send(Request $request)
     {
@@ -35,6 +38,8 @@ class ContactController extends Controller
         $headers    = 'From: "' .$firstName. ' ' .$lastName. '"<' .$email. '>'."\n";
         $headers   .= 'Content-Type: text/html; charset="utf-8"';
         mail(getenv('MAILTO'), '[' .date('Y-m-d H:i:s'). '] mealtime.io - ContactForm', $message, $headers);
+
+        return $this->index();
     }
 
 }
