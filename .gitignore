@@ -2,10 +2,6 @@
 .idea
 ###< phpstorm ###
 
-###> composer ###
-composer.lock
-###< composer ###
-
 ###> symfony/framework-bundle ###
 .env
 /public/bundles/
