@@ -9,6 +9,7 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Yaml\Yaml;
 
 class ProjectController extends Controller
 {
@@ -17,7 +18,12 @@ class ProjectController extends Controller
      */
     public function listing()
     {
-        return $this->render('projects.html.twig');
+        $projects = Yaml::parseFile(__DIR__. '/../../assets/yaml/projects.yaml');
+        $projects = array_chunk($projects['list'], 2);
+
+        return $this->render('projects.html.twig', [
+            'projects' => $projects
+        ]);
     }
 
 }

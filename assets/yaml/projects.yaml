@@ -1,0 +1,50 @@
+list:
+  - title:  Portfolio
+    desc:   Personal website, you're on it :)
+    url:    https://gl.mrsparkl.es/panda_/portfolio
+    tags:   PHP,Silex,Twig
+
+  - title:  Demeter
+    desc:   Tool to manage Planetary Interaction in EvE Online game
+    url:    https://gl.mrsparkl.es/panda_/demeter
+    tags:   EvE Online,PHP,Silex,Twig
+
+  - title:  Tcheka
+    desc:   EvE Online API Data Viewer Tool
+    url:    https://gl.mrsparkl.es/drama-sutra/Tcheka
+    tags:   EvE Online,PHP
+
+  - title:  phpbb-3.0.X-evesso
+    desc:   Connection with EvE-SSO throught phpbb
+    url:    https://github.com/Frugu/phpbb-3.0.X-evesso
+    tags:   EvE Online,PHP
+
+  - title:  FarmingTools
+    desc:   Tool to manage people and their money in the EvE Online game
+    url:    https://gl.mrsparkl.es/panda_/farmingtools
+    tags:   EvE Online,PHP,Silex
+
+  - title:  ToKeep
+    desc:   Website to keep links and sort them with tags
+    url:    https://gl.mrsparkl.es/panda_/tokeep
+    tags:   Angular
+
+  - title:  pizza-delis
+    desc:   Creating a site for a Pizzeria restaurant
+    url:    https://gl.mrsparkl.es/panda_/pizza-delis
+    tags:   Angular
+
+  - title:  VCardFactory
+    desc:   Simply generating vCard files
+    url:    https://gl.mrsparkl.es/panda_/VCardFactory
+    tags:   PHP,VCard
+
+  - title:  GW2-Craft
+    desc:   This site was created to be used by every Guild Wars 2 player that wanted to make a legendary weapon (very end-game thing to do). This tool is used to track the progression of that craft.
+    url:    https://gl.mrsparkl.es/panda_/gw2-craft_save
+    tags:   Guild Wars 2,PHP,Silex
+
+  - title:  ScoresBackend
+    desc:   On the begin of the game-mode WvW on Guild Wars 2 game, there was no API to get scores, so we did a small tool to collect/validate scores and publish them.
+    url:    https://gl.mrsparkl.es/grandcross/scoresbackend
+    tags:   Guild Wars 2,GrandCross
