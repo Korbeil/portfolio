@@ -1,0 +1,13 @@
+list:
+  Start:
+    name:       Start
+    background: brown lighten-2
+    text:       white-text
+  Work:
+    name:       Work
+    background: blue-grey lighten-2
+    text:       white-text
+  Other:
+    name:       Other
+    background: deep-orange lighten-3
+    text:       white-text

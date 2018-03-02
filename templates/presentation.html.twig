@@ -3,5 +3,72 @@
 {% block presentation_active %}active{% endblock %}
 
 {% block content %}
-    Presentation
+    <div class="row">
+        <div class="col s12">
+            <div id="intro" class="card">
+                <div class="card-content grey-text text-lighten-3">
+                    <span class="card-title">Welcome !</span>
+                    <p>
+                        I'm Baptiste LEDUC, a skillfull backend developer.<br/>
+                        Through the following timeline, you can see my experiences and my projects via the right click menu.<br/>
+                        You can also contact me with any questions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row valign-wrapper">
+        <div class="col s6">
+            <h4>Timeline</h4>
+        </div>
+        <div class="col s3 valign">
+            <div class="switch">
+                <label>
+                    Work
+                    <input type="checkbox" checked id="leverWork" onclick="reloadTimeline();">
+                    <span class="lever"></span>
+                </label>
+            </div>
+        </div>
+        <div class="col s3 valign">
+            <div class="switch">
+                <label>
+                    Other
+                    <input type="checkbox" id="leverOther" onclick="reloadTimeline();">
+                    <span class="lever"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <hr/><br/>
+
+    <div id="timeline-container">
+        {% include 'timeline.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        function reloadTimeline() {
+            var types       = ['Work', 'Other'];
+            var list        = ['Start'];
+
+            for (i = 0; i < types.length; i++) {
+                var type    = types[i];
+                var data    = $('#lever' + type).prop('checked');
+                if(data) {
+                    list.push(type);
+                }
+            }
+
+            $.ajax({
+                method  : "POST",
+                url     : "/presentation",
+                data    : { types: list }
+            }).done(function(timeline) {
+                $('#timeline-container').html(timeline);
+            });
+        }
+    </script>
 {% endblock %}
