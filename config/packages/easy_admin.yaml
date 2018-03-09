@@ -1,0 +1,14 @@
+easy_admin:
+  design:
+    brand_color: '#1ABC9C'
+  entities:
+    Project:
+      class: App\Entity\Project
+      label: 'Projects'
+      list:
+        title: 'Projects'
+    Tag:
+      class: App\Entity\Tag
+      label: 'Tags'
+      list:
+        title: 'Tags'
