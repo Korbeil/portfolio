@@ -1,6 +1,11 @@
 easy_admin:
   design:
     brand_color: '#1ABC9C'
+    menu:
+      - { entity: 'Project', icon: 'sitemap' }
+      - { entity: 'Tag', icon: 'tags' }
+      - { entity: 'TimelineEvent', icon: 'exclamation' }
+      - { entity: 'TimelineEventType', icon: 'question' }
   entities:
     Project:
       class: App\Entity\Project
@@ -12,3 +17,13 @@ easy_admin:
       label: 'Tags'
       list:
         title: 'Tags'
+    TimelineEvent:
+      class: App\Entity\TimelineEvent
+      label: 'Events'
+      list:
+        title: 'Events'
+    TimelineEventType:
+      class: App\Entity\TimelineEventType
+      label: 'EventTypes'
+      list:
+        title: 'EventTypes'

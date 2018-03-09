@@ -19,7 +19,7 @@ class Tag
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=128)
      */
     private $name;
 
@@ -45,6 +45,6 @@ class Tag
      * @return string
      */
     public function __toString() {
-        return $this->name;
+        return $this->getName(). ' #' .$this->getId();
     }
 }
