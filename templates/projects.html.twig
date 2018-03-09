@@ -15,13 +15,12 @@
                 <div class="col s6">
                     <div class="card blue-grey lighten-2">
                         <div class="card-content white-text">
-                            <span class="card-title project-title"><a href="{{ project.url }}" target="_blank">{{ project.title }}</a></span>
-                            <p>{{ project.desc }}</p>
+                            <span class="card-title project-title"><a href="{{ project.getUrl }}" target="_blank">{{ project.getTitle }}</a></span>
+                            <p>{{ project.getDescription }}</p>
                         </div>
                         <div class="card-action left-align">
-                            {% set tags = project.tags|split(',') %}
-                            {% for tag in tags %}
-                                <div class="chip">{{ tag }}</div>
+                            {% for tag in project.getTags %}
+                                <div class="chip">{{ tag.getName }}</div>
                             {% endfor %}
                         </div>
                     </div>

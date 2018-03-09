@@ -19,6 +19,13 @@ class ProjectRepository extends ServiceEntityRepository
         parent::__construct($registry, Project::class);
     }
 
+    /**
+     * @return Project[]
+     */
+    public function findEnabled() {
+        return $this->findBy(['enabled' => true]);
+    }
+
     /*
     public function findBySomething($value)
     {
