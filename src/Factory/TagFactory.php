@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  * User: bleduc
@@ -19,7 +21,7 @@ class TagFactory
      * @param ObjectManager $manager
      * @return Tag
      */
-    static public function create(string $name, ObjectManager $manager) {
+    static public function create(string $name, ObjectManager $manager) : Tag {
         /**
          * @var TagRepository
          */
