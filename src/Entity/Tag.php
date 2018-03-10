@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Entity;
 
@@ -26,25 +27,25 @@ class Tag
     /**
      * @return integer
      */
-    public function getId() {
+    public function getId() : int {
         return $this->id;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName() : string {
         return $this->name;
     }
 
-    public function setName(string $name) {
+    public function setName(string $name) : void {
         $this->name = $name;
     }
 
     /**
      * @return string
      */
-    public function __toString() {
+    public function __toString() : string {
         return $this->getName(). ' #' .$this->getId();
     }
 }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Entity;
 
@@ -38,56 +39,56 @@ class TimelineEventType
     /**
      * @return integer
      */
-    public function getId() {
+    public function getId() : int {
         return $this->id;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName() : string {
         return $this->name;
     }
 
     /**
      * @param string $name
      */
-    public function setName(string $name) {
+    public function setName(string $name) : void {
         $this->name = $name;
     }
 
     /**
      * @return string
      */
-    public function getBackground() {
+    public function getBackground() : string {
         return $this->background;
     }
 
     /**
      * @param string $background
      */
-    public function setBackground(string $background) {
+    public function setBackground(string $background) : void {
         $this->background = $background;
     }
 
     /**
      * @return string
      */
-    public function getText() {
+    public function getText() : string {
         return $this->text;
     }
 
     /**
      * @param string $text
      */
-    public function setText(string $text) {
+    public function setText(string $text) : void {
         $this->text = $text;
     }
 
     /**
      * @return string
      */
-    public function __toString() {
+    public function __toString() : string {
         return $this->getName(). ' #' .$this->getId();
     }
 }
