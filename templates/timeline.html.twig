@@ -1,24 +1,18 @@
 <section class="timeline">
-    {% for event in events.list %}
-        {% set type = attribute(types.list, event.type) %}
-        <article class="timeline-element {{ event.type }}">
+    {% for event in events %}
+        {% set type = event.getType %}
+        <article class="timeline-element {{ type.getName }}">
             <div class="timeline-element-left">
-                {% if event.date.start is defined %}
-                    {% set date = event.date.start %}
-                {% else %}
-                    {% set date = event.date %}
-                {% endif %}
-
-                {{ date | date('M') }}
+                {{ event.getDateStart | date('M') }}
                 <br/>
-                {{ date | date('Y') }}
+                {{ event.getDateStart | date('Y') }}
             </div>
-            <div class="timeline-element-body card {{ type.background }} {{ type.text }}">
+            <div class="timeline-element-body card {{ type.getBackground }} {{ type.getText }}">
                 <div class="card-content">
-                    <span class="card-title">{{ event.name }}</span>
-                    {% if event.desc is defined %}
+                    <span class="card-title">{{ event.getName }}</span>
+                    {% if event.getDescription is not empty %}
                         <p>
-                            {{ event.desc | raw }}
+                            {{ event.getDescription | raw }}
                         </p>
                     {% endif %}
                 </div>

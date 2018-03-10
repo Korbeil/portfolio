@@ -41,6 +41,7 @@ class TimelineEventFixtures extends Fixture
             $event = new TimelineEvent();
 
             $event->setName($data['name']);
+            $event->setEnabled(true);
             $event->setType($types[$data['type']]);
             if(isset($data['desc'])) {
                 $event->setDescription($data['desc']);
@@ -55,8 +56,8 @@ class TimelineEventFixtures extends Fixture
                 $start = $data['date'];
                 $stop = $start;
             }
-            $event->setDateStart($start);
-            $event->setDateStop($stop);
+            $event->setDateStart(Carbon::createFromTimestamp($start));
+            $event->setDateStop(Carbon::createFromTimestamp($stop));
 
             $manager->persist($event);
         }

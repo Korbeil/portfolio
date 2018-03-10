@@ -1,4 +1,5 @@
 easy_admin:
+  site_name: "mealtime.io"
   design:
     brand_color: '#1ABC9C'
     menu:

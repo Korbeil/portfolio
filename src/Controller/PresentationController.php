@@ -7,6 +7,9 @@
  */
 namespace App\Controller;
 
+use App\Entity\TimelineEvent;
+use App\Repository\TimelineEventRepository;
+use App\Repository\TimelineEventTypeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -15,11 +18,26 @@ use Symfony\Component\Yaml\Yaml;
 class PresentationController extends Controller
 {
     /**
+     * @var TimelineEventRepository
+     */
+    private $timelineEventRepository;
+
+    /**
+     * @var TimelineEventTypeRepository
+     */
+    private $timelineEventTypeRepository;
+
+    public function __construct(TimelineEventRepository $timelineEventRepository, TimelineEventTypeRepository $timelineEventTypeRepository) {
+        $this->timelineEventRepository = $timelineEventRepository;
+        $this->timelineEventTypeRepository = $timelineEventTypeRepository;
+    }
+
+    /**
      * @Route("/presentation", name="presentation", methods={"GET"})
      */
     public function index()
     {
-        return $this->render('presentation.html.twig', $this->data(['Start', 'Work']));
+        return $this->render('presentation.html.twig', ['events' => $this->data(['Start', 'Work'])]);
     }
 
     /**
@@ -31,31 +49,29 @@ class PresentationController extends Controller
     public function update(Request $request)
     {
         $types = $request->get('types', ['Start', 'Work']);
-        return $this->render('timeline.html.twig', $this->data($types));
+        return $this->render('timeline.html.twig', ['events' => $this->data($types)]);
     }
 
     protected function data($filter = []) {
-        $types  = Yaml::parseFile(__DIR__. '/../../assets/yaml/types.yaml');
-        $events = Yaml::parseFile(__DIR__. '/../../assets/yaml/events.yaml');
+        $events = $this->timelineEventRepository->findBy(['enabled' => true]);
 
         // filtering & sorting
         if(count($filter) > 0) {
-            foreach($events['list'] as $key => $event) {
-                if(!in_array($event['type'], $filter)) {
-                    unset($events['list'][$key]);
+            foreach($events as $key => $event) {
+                $event_type = $event->getType()->getName();
+
+                if(!in_array($event_type, $filter)) {
+                    unset($events[$key]);
                 }
             }
         }
-        usort($events['list'], array(get_class(), '_orderBy_events'));
+        usort($events, array(get_class(), '_orderBy_events'));
 
-        return [
-            'events' => $events,
-            'types' => $types
-        ];
+        return $events;
     }
 
-    private function _orderBy_events($a, $b) {
-        return $a['date'] < $b['date'];
+    private function _orderBy_events(TimelineEvent $a, TimelineEvent $b) {
+        return $a->getDateStart() < $b->getDateStart();
     }
 
 }

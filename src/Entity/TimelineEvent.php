@@ -19,6 +19,12 @@ class TimelineEvent
     private $id;
 
     /**
+     * @var bool
+     * @ORM\Column(type="boolean")
+     */
+    private $enabled;
+
+    /**
      * @var TimelineEventType
      * @ORM\ManyToOne(targetEntity="App\Entity\TimelineEventType")
      * @ORM\JoinColumn(nullable=true)
@@ -32,14 +38,14 @@ class TimelineEvent
     private $name;
 
     /**
-     * @var integer
-     * @ORM\Column(type="integer")
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
      */
     private $date_start;
 
     /**
-     * @var integer
-     * @ORM\Column(type="integer")
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
      */
     private $date_stop;
 
@@ -52,91 +58,92 @@ class TimelineEvent
     /**
      * @return int
      */
-    public function getId() {
+    public function getId() : int {
         return $this->id;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled() : bool {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled(bool $enabled) : void {
+        $this->enabled = $enabled;
     }
 
     /**
      * @return TimelineEventType
      */
-    public function getType() {
+    public function getType() : TimelineEventType {
         return $this->type;
     }
 
     /**
      * @param TimelineEventType $eventType
      */
-    public function setType(TimelineEventType $eventType) {
+    public function setType(TimelineEventType $eventType) : void {
         $this->type = $eventType;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName() : string {
         return $this->name;
     }
 
     /**
      * @param string $name
      */
-    public function setName(string $name) {
+    public function setName(string $name) : void {
         $this->name = $name;
     }
 
     /**
-     * @return integer
+     * @return Carbon
      */
-    public function getDateStart() {
-        return $this->date_start;
+    public function getDateStart() : Carbon {
+        return Carbon::createFromTimestamp($this->date_start->getTimestamp());
+
+    }
+
+    /**
+     * @param Carbon $datetime
+     */
+    public function setDateStart(Carbon $datetime) : void {
+        $this->date_start = $datetime;
     }
 
     /**
      * @return Carbon
      */
-    public function getFormattedDateStart() {
-        return Carbon::createFromTimestamp($this->date_start);
+    public function getDateStop() : Carbon {
+        return Carbon::createFromTimestamp($this->date_stop->getTimestamp());
     }
 
     /**
-     * @param int $time
+     * @param Carbon $datetime
      */
-    public function setDateStart(int $time) {
-        $this->date_start = $time;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getDateStop() {
-        return $this->date_stop;
-    }
-
-    /**
-     * @return Carbon
-     */
-    public function getFormattedDateStop() {
-        return Carbon::createFromTimestamp($this->date_stop);
-    }
-
-    /**
-     * @param int $time
-     */
-    public function setDateStop(int $time) {
-        $this->date_stop = $time;
+    public function setDateStop(Carbon $datetime) : void {
+        $this->date_stop = $datetime;
     }
 
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription() : string {
         return $this->description;
     }
 
     /**
      * @param string $description
      */
-    public function setDescription(string $description) {
+    public function setDescription(string $description) : void {
         $this->description = $description;
     }
 }
