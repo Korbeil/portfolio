@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Repository;
 
@@ -22,7 +23,7 @@ class ProjectRepository extends ServiceEntityRepository
     /**
      * @return Project[]
      */
-    public function findEnabled() {
+    public function findEnabled() : array {
         return $this->findBy(['enabled' => true]);
     }
 
