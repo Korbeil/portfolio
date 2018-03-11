@@ -16,6 +16,13 @@
                         </p>
                     {% endif %}
                 </div>
+                {% if event.getTags is not empty %}
+                    <div class="card-action left-align">
+                        {% for tag in event.getTags %}
+                            <div class="chip">{{ tag.getName }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </article>
     {% endfor %}

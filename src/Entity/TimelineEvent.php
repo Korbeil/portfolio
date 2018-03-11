@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TimelineEventRepository")
@@ -37,6 +38,12 @@ class TimelineEvent
      * @ORM\Column(type="string", length=128)
      */
     private $name;
+
+    /**
+     * @var PersistentCollection > Tag[]
+     * @ORM\ManyToMany(targetEntity="Tag")
+     */
+    private $tags;
 
     /**
      * @var \DateTime
@@ -89,6 +96,20 @@ class TimelineEvent
      */
     public function setType(TimelineEventType $eventType) : void {
         $this->type = $eventType;
+    }
+
+    /**
+     * @return PersistentCollection > Tag[]
+     */
+    public function getTags() : PersistentCollection {
+        return $this->tags;
+    }
+
+    /**
+     * @param Tag $tag
+     */
+    public function addTag(Tag $tag) : void {
+        $this->tags[] = $tag;
     }
 
     /**

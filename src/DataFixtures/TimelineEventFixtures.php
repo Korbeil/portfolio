@@ -49,6 +49,15 @@ class TimelineEventFixtures extends Fixture
                 $event->setDescription('');
             }
 
+            if(isset($data['tags'])) {
+                $tags = explode(',', $data['tags']);
+                foreach($tags as $tag) {
+                    $tag = TagFactory::create($tag, $manager);
+                    $event->addTag($tag);
+                }
+            }
+
+
             if (is_array($data['date'])) {
                 $start = $data['date']['start'];
                 $stop = $data['date']['end'];
