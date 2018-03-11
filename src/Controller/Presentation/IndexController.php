@@ -5,7 +5,7 @@
  * Date: 31/01/18
  * Time: 21:42
  */
-namespace App\Controller;
+namespace App\Controller\Presentation;
 
 use App\Entity\TimelineEvent;
 use App\Repository\TimelineEventRepository;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Yaml\Yaml;
 
-class PresentationController extends Controller
+class IndexController extends Controller
 {
     /**
      * @var TimelineEventRepository
@@ -37,7 +37,7 @@ class PresentationController extends Controller
      */
     public function index()
     {
-        return $this->render('presentation.html.twig', ['events' => $this->data(['Start', 'Work'])]);
+        return $this->render('presentation/index.html.twig', ['events' => $this->data(['Start', 'Work'])]);
     }
 
     /**
@@ -49,7 +49,7 @@ class PresentationController extends Controller
     public function update(Request $request)
     {
         $types = $request->get('types', ['Start', 'Work']);
-        return $this->render('timeline.html.twig', ['events' => $this->data($types)]);
+        return $this->render('presentation/timeline.html.twig', ['events' => $this->data($types)]);
     }
 
     protected function data($filter = []) {

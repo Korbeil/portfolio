@@ -6,19 +6,19 @@
  * Time: 19:16
  */
 
-namespace App\Controller;
+namespace App\Controller\Blog;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class BlogController extends Controller
+class IndexController extends Controller
 {
     /**
      * @Route("/", name="blog_index")
      */
     public function index()
     {
-        return $this->render('blog.html.twig');
+        return $this->render('blog/index.html.twig');
     }
 
 }

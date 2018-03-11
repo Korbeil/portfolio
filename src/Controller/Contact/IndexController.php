@@ -5,14 +5,14 @@
  * Date: 31/01/18
  * Time: 21:40
  */
-namespace App\Controller;
+namespace App\Controller\Contact;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class ContactController extends Controller
+class IndexController extends Controller
 {
     /**
      * @Route("/contact", name="contact", methods={"GET"})
@@ -20,7 +20,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return $this->render('contact.html.twig');
+        return $this->render('contact/index.html.twig');
     }
 
     /**

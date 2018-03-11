@@ -5,14 +5,14 @@
  * Date: 31/01/18
  * Time: 21:36
  */
-namespace App\Controller;
+namespace App\Controller\Project;
 
 use App\Repository\ProjectRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Yaml\Yaml;
 
-class ProjectController extends Controller
+class IndexController extends Controller
 {
     /**
      * @var ProjectRepository
@@ -31,7 +31,7 @@ class ProjectController extends Controller
         $projects = $this->projectRepository->findEnabled();
         $projects = array_chunk($projects, 2);
 
-        return $this->render('projects.html.twig', [
+        return $this->render('project/index.html.twig', [
             'projects' => $projects
         ]);
     }

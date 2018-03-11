@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout/base.html.twig' %}
 
 {% block presentation_active %}active{% endblock %}
 
@@ -44,7 +44,7 @@
     <hr/><br/>
 
     <div id="timeline-container">
-        {% include 'timeline.html.twig' %}
+        {% include 'presentation/timeline.html.twig' %}
     </div>
 {% endblock %}
 
