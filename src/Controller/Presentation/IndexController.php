@@ -13,7 +13,7 @@ use App\Repository\TimelineEventTypeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\HttpFoundation\Response;
 
 class IndexController extends Controller
 {
@@ -34,6 +34,7 @@ class IndexController extends Controller
 
     /**
      * @Route("/presentation", name="presentation", methods={"GET"})
+     * @return Response
      */
     public function index()
     {
@@ -42,9 +43,8 @@ class IndexController extends Controller
 
     /**
      * @Route("/presentation", name="presentation_update", methods={"POST"})
-     *
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function update(Request $request)
     {

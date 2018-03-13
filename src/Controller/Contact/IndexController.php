@@ -26,18 +26,21 @@ class IndexController extends Controller
     /**
      * @Route("/contact", name="contact_send", methods={"POST"})
      * @param Request $request
+     * @param \Swift_Mailer $mailer
      * @return Response
      */
-    public function send(Request $request)
+    public function send(Request $request, \Swift_Mailer $mailer)
     {
         $firstName  = $request->get('firstName');
         $lastName   = $request->get('lastName');
         $email      = $request->get('email');
-        $message    = $request->get('message');
+        $content    = $request->get('message');
 
-        $headers    = 'From: "' .$firstName. ' ' .$lastName. '"<' .$email. '>'."\n";
-        $headers   .= 'Content-Type: text/html; charset="utf-8"';
-        mail(getenv('MAILTO'), '[' .date('Y-m-d H:i:s'). '] mealtime.io - ContactForm', $message, $headers);
+        $message = (new \Swift_Message('Contact'))
+            ->setFrom($email, $firstName. ' ' .$lastName)
+            ->setTo(getenv('MAILTO'))
+            ->setBody($content);
+        $mailer->send($message);
 
         return $this->index();
     }
