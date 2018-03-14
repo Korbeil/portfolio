@@ -11,6 +11,13 @@ easy_admin:
     Project:
       class: App\Entity\Project
       label: 'Projects'
+      form:
+        fields:
+          - 'enabled'
+          - 'title'
+          - 'url'
+          - {property: 'description', type: 'ckeditor'}
+          - 'tags'
       list:
         title: 'Projects'
     Tag:
@@ -21,6 +28,15 @@ easy_admin:
     TimelineEvent:
       class: App\Entity\TimelineEvent
       label: 'Events'
+      form:
+        fields:
+          - 'enabled'
+          - 'name'
+          - 'date_start'
+          - 'date_stop'
+          - {property: 'description', type: 'ckeditor'}
+          - 'type'
+          - 'tags'
       list:
         title: 'Events'
     TimelineEventType:
