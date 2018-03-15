@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20180315154134 extends AbstractMigration
+class Version20180315160011 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
@@ -19,7 +19,7 @@ class Version20180315154134 extends AbstractMigration
         $this->addSql('CREATE TABLE project_tag (project_id INTEGER NOT NULL, tag_id INTEGER NOT NULL, PRIMARY KEY(project_id, tag_id))');
         $this->addSql('CREATE INDEX IDX_91F26D60166D1F9C ON project_tag (project_id)');
         $this->addSql('CREATE INDEX IDX_91F26D60BAD26311 ON project_tag (tag_id)');
-        $this->addSql('CREATE TABLE post (id INTEGER NOT NULL, enabled BOOLEAN NOT NULL, type VARCHAR(128) NOT NULL, title VARCHAR(128) NOT NULL, subtitle VARCHAR(256) NOT NULL, content CLOB NOT NULL, url VARCHAR(256) NOT NULL, created DATETIME NOT NULL, updated DATETIME NOT NULL, posted DATETIME NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE post (id INTEGER NOT NULL, enabled BOOLEAN NOT NULL, type VARCHAR(128) NOT NULL, slug VARCHAR(128) NOT NULL, title VARCHAR(128) NOT NULL, subtitle VARCHAR(256) NOT NULL, image VARCHAR(256) NOT NULL, content CLOB NOT NULL, url VARCHAR(256) NOT NULL, created DATETIME NOT NULL, updated DATETIME NOT NULL, posted DATETIME NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE post_tag (post_id INTEGER NOT NULL, tag_id INTEGER NOT NULL, PRIMARY KEY(post_id, tag_id))');
         $this->addSql('CREATE INDEX IDX_5ACE3AF04B89032C ON post_tag (post_id)');
         $this->addSql('CREATE INDEX IDX_5ACE3AF0BAD26311 ON post_tag (tag_id)');

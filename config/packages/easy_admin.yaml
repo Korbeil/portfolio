@@ -52,8 +52,10 @@ easy_admin:
         fields:
           - 'enabled'
           - 'type'
+          - 'slug'
           - 'title'
           - 'subtitle'
+          - 'image'
           - {property: 'content', type: 'ckeditor'}
           - 'url'
           - 'tags'

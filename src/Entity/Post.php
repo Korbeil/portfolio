@@ -36,6 +36,12 @@ class Post
      * @var string
      * @ORM\Column(type="string", length=128)
      */
+    private $slug = '';
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=128)
+     */
     private $title = '';
 
     /**
@@ -43,6 +49,12 @@ class Post
      * @ORM\Column(type="string", length=256)
      */
     private $subtitle = '';
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=256)
+     */
+    private $image = '';
 
     /**
      * @var string
@@ -118,6 +130,20 @@ class Post
     /**
      * @return string
      */
+    public function getSlug() : string {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug(string $slug) : void {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @return string
+     */
     public function getTitle() : string {
         return $this->title;
     }
@@ -141,6 +167,20 @@ class Post
      */
     public function setSubtitle(string $subtitle) : void {
         $this->subtitle = $subtitle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage() : string {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage(string $image) : void {
+        $this->image = $image;
     }
 
     /**
