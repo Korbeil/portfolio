@@ -3,6 +3,7 @@ easy_admin:
   design:
     brand_color: '#1ABC9C'
     menu:
+      - { entity: 'Post', icon: 'comment' }
       - { entity: 'Project', icon: 'sitemap' }
       - { entity: 'Tag', icon: 'tags' }
       - { entity: 'TimelineEvent', icon: 'exclamation' }
@@ -44,3 +45,20 @@ easy_admin:
       label: 'EventTypes'
       list:
         title: 'EventTypes'
+    Post:
+      class: App\Entity\Post
+      label: 'Posts'
+      form:
+        fields:
+          - 'enabled'
+          - 'type'
+          - 'title'
+          - 'subtitle'
+          - {property: 'content', type: 'ckeditor'}
+          - 'url'
+          - 'tags'
+          - 'created'
+          - 'updated'
+          - 'posted'
+      list:
+        title: 'Posts'

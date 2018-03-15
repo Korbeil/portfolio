@@ -131,7 +131,6 @@ class TimelineEvent
      */
     public function getDateStart() : Carbon {
         return Carbon::createFromTimestamp($this->date_start->getTimestamp());
-
     }
 
     /**
