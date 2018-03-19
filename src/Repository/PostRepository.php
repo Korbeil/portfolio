@@ -18,11 +18,22 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
+    /**
+     * @return Post[]
+     */
     public function findForHomepage() {
         return $this->createQueryBuilder('p')
                     ->where('p.enabled = :value')->setParameter('value', true)
                     ->orderBy('p.posted', 'DESC')
                     ->getQuery()
                     ->getResult();
+    }
+
+    /**
+     * @param string $slug
+     * @return Post
+     */
+    public function findBySlug(string $slug) {
+        return $this->findOneBy(['slug' => $slug]);
     }
 }

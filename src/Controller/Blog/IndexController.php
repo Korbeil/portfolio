@@ -11,6 +11,7 @@ namespace App\Controller\Blog;
 use App\Repository\PostRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class IndexController extends Controller
 {
@@ -25,12 +26,24 @@ class IndexController extends Controller
 
     /**
      * @Route("/", name="blog_index")
+     * @return Response
      */
-    public function index()
-    {
+    public function index() {
         $posts = $this->postRepository->findForHomepage();
         return $this->render('blog/index.html.twig', [
             'posts' => $posts
+        ]);
+    }
+
+    /**
+     * @Route("/blog/{slug}", name="blog_post")
+     * @param $slug
+     * @return Response
+     */
+    public function post($slug) {
+        $post = $this->postRepository->findBySlug($slug);
+        return $this->render('blog/post.html.twig', [
+            'post' => $post
         ]);
     }
 

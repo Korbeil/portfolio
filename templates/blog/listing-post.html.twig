@@ -2,7 +2,7 @@
     {% set link = post.getUrl %}
     {% set target = ' target="_blank"' %}
 {% else %}
-    {% set link = path('blog_index') %}
+    {% set link = path('blog_post', {'slug': post.getSlug}) %}
     {% set target = '' %}
 {% endif %}
 

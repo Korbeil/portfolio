@@ -111,3 +111,18 @@ p {
     color: #fff;
     text-decoration: underline;
 }
+
+.post h1 {
+    font-size: 56px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.post .tagline {
+    display: block;
+    margin: -20px 0 40px 0;
+}
+.post p {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+}

@@ -1,0 +1,14 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block blog_active %}active{% endblock %}
+
+{% block content %}
+    <div class="row post">
+        <div class="col s12 m12">
+            <h1>{{ post.getTitle }}</h1>
+            <div class="tagline">{{ post.getSubtitle }}</div>
+
+            <p>{{ post.getContent | raw }}</p>
+        </div>
+    </div>
+{% endblock %}
