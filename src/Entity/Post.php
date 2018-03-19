@@ -221,6 +221,13 @@ class Post
     /**
      * @param Tag $tag
      */
+    public function removeTag(Tag $tag) : void {
+        //
+    }
+
+    /**
+     * @param Tag $tag
+     */
     public function addTag(Tag $tag) : void {
         $this->tags[] = $tag;
     }
@@ -234,9 +241,10 @@ class Post
     }
 
     /**
-     * @param Carbon $datetime
+     * @param \DateTime $datetime
      */
-    public function setCreated(Carbon $datetime) : void {
+    public function setCreated(\DateTime $datetime) : void {
+        $datetime = Carbon::createFromTimestamp($datetime->getTimestamp());
         $this->created = $datetime;
     }
 
@@ -249,9 +257,10 @@ class Post
     }
 
     /**
-     * @param Carbon $datetime
+     * @param \DateTime $datetime
      */
-    public function setUpdated(Carbon $datetime) : void {
+    public function setUpdated(\DateTime $datetime) : void {
+        $datetime = Carbon::createFromTimestamp($datetime->getTimestamp());
         $this->updated = $datetime;
     }
 
@@ -264,10 +273,17 @@ class Post
     }
 
     /**
-     * @param Carbon $datetime
+     * @param \DateTime $datetime
      */
-    public function setPosted(Carbon $datetime) : void {
+    public function setPosted(\DateTime $datetime) : void {
+        $datetime = Carbon::createFromTimestamp($datetime->getTimestamp());
         $this->posted = $datetime;
     }
 
+    public function makeLink() : string {
+        if($this->getType() === 'link') {
+            return $this->getUrl();
+        }
+        return '';
+    }
 }

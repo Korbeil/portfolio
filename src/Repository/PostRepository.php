@@ -14,21 +14,15 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class PostRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
-    {
+    public function __construct(RegistryInterface $registry) {
         parent::__construct($registry, Post::class);
     }
 
-    /*
-    public function findBySomething($value)
-    {
+    public function findForHomepage() {
         return $this->createQueryBuilder('p')
-            ->where('p.something = :value')->setParameter('value', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+                    ->where('p.enabled = :value')->setParameter('value', true)
+                    ->orderBy('p.posted', 'DESC')
+                    ->getQuery()
+                    ->getResult();
     }
-    */
 }

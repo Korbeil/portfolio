@@ -3,5 +3,7 @@
 {% block blog_active %}active{% endblock %}
 
 {% block content %}
-    Blog
+    {% for post in posts %}
+        {% include 'blog/listing-post.html.twig' %}
+    {% endfor %}
 {% endblock %}
