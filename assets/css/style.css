@@ -115,7 +115,6 @@ p {
 .post h1 {
     font-size: 56px;
     font-weight: 600;
-    text-transform: uppercase;
 }
 .post .tagline {
     display: block;
