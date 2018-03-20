@@ -112,6 +112,14 @@ p {
     text-decoration: underline;
 }
 
+.posts .card-image {
+    background-color: rgba(144, 164, 174, 0.2);
+}
+.posts .card-image img {
+    max-height: 200px;
+    width: auto;
+    margin: auto;
+}
 .post h1 {
     font-size: 56px;
     font-weight: 600;
