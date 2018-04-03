@@ -2,6 +2,10 @@
 .idea
 ###< phpstorm ###
 
+###> composer ###
+composer.phar
+###< composer ###
+
 ###> symfony/framework-bundle ###
 .env
 /public/bundles/
