@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3908b4fb5d9968d1f7a443fa6ea2f35",
+    "content-hash": "f6c7f261d8330c8577280b2d0698b755",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1344,6 +1344,52 @@
                 "sql"
             ],
             "time": "2014-01-12T16:20:24+00:00"
+        },
+        {
+            "name": "mashape/unirest-php",
+            "version": "v3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Mashape/unirest-php.git",
+                "reference": "842c0f242dfaaf85f16b72e217bf7f7c19ab12cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Mashape/unirest-php/zipball/842c0f242dfaaf85f16b72e217bf7f7c19ab12cb",
+                "reference": "842c0f242dfaaf85f16b72e217bf7f7c19ab12cb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "0.1.*",
+                "phpunit/phpunit": "~4.4"
+            },
+            "suggest": {
+                "ext-json": "Allows using JSON Bodies for sending and parsing requests"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Unirest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Unirest PHP",
+            "homepage": "https://github.com/Mashape/unirest-php",
+            "keywords": [
+                "client",
+                "curl",
+                "http",
+                "https",
+                "rest"
+            ],
+            "time": "2016-08-11T17:49:21+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5510,6 +5556,105 @@
                 "validate"
             ],
             "time": "2018-01-29T19:49:41+00:00"
+        },
+        {
+            "name": "weglot/simplehtmldom",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/weglot/simple_html_dom.git",
+                "reference": "f5cb0f40257bb631ebeff294af218668ff9abb23"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/weglot%2Fsimple_html_dom/repository/archive.zip?sha=f5cb0f40257bb631ebeff294af218668ff9abb23",
+                "reference": "f5cb0f40257bb631ebeff294af218668ff9abb23",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SimpleHtmlDom": "src/"
+                },
+                "files": [
+                    "src/simple_html_dom.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "The MIT License"
+            ],
+            "authors": [
+                {
+                    "name": "S.C. Chen",
+                    "email": "me578022@gmail.com"
+                }
+            ],
+            "description": "Composer package that gives you access to and (unlike all the others at this time) autoloads S.C. Chen's PHP Simple HTML DOM Parser Library",
+            "homepage": "http://simplehtmldom.sourceforge.net/",
+            "keywords": [
+                "Simple",
+                "dom",
+                "html"
+            ],
+            "time": "2018-04-04T15:18:06+00:00"
+        },
+        {
+            "name": "weglot/translate-bundle",
+            "version": "0.4",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/weglot/weglot-translate-bundle.git",
+                "reference": "858436ebae305177f5a75ae1c5f4180cd8221851"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/weglot%2Fweglot-translate-bundle/repository/archive.zip?sha=858436ebae305177f5a75ae1c5f4180cd8221851",
+                "reference": "858436ebae305177f5a75ae1c5f4180cd8221851",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "mashape/unirest-php": "3.*",
+                "php": ">=5.4",
+                "weglot/simplehtmldom": "^0.1.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Weglot\\TranslateBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Floran Pagliai",
+                    "email": "floran@weglot.com"
+                },
+                {
+                    "name": "Remy Berda",
+                    "email": "remy@weglot.com"
+                },
+                {
+                    "name": "Baptiste Leduc",
+                    "email": "baptiste@weglot.com"
+                }
+            ],
+            "description": "TODO",
+            "keywords": [
+                "Weglot",
+                "languages",
+                "localization",
+                "translate",
+                "translation"
+            ],
+            "time": "2018-04-06T14:23:01+00:00"
         },
         {
             "name": "zendframework/zend-code",

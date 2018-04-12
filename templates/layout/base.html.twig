@@ -27,6 +27,9 @@
             <li class="{% block project_active %}{% endblock %}"><a href="{{ url('projects') }}">Projects</a></li>
             <li class="{% block contact_active %}{% endblock %}"><a href="{{ url('contact') }}">Contact</a></li>
         </ul>
+        <ul class="right">
+            {{ weglot_translate_render(1) }}
+        </ul>
     </div>
 </nav>
 
