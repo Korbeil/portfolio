@@ -1,5 +1,5 @@
 weglot_translate:
-    api_key: 'wg_a73772c0d38aeeb923542c38fd9fbdb7'
+    api_key: '%env(WEGLOT_API_KEY)%'
     original_language : 'en'
     destination_languages:
         - 'fr'
